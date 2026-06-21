@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Munir Boutique - Unstitched Dresses</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #faf3f0 0%, #f5e6e0 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(90deg, #d4145a 0%, #fbb03b 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(212, 20, 90, 0.3);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        nav p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #d4145a 0%, #f94f5c 50%, #fbb03b 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #d4145a;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #fbb03b, #d4145a);
+            border-radius: 2px;
+        }
+
+        /* Product Gallery */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(212, 20, 90, 0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(212, 20, 90, 0.25);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #bbb;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #d4145a;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            color: #fbb03b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4145a;
+            margin-bottom: 1rem;
+        }
+
+        .product-footer {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex: 1;
+            text-align: center;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366 0%, #20ba5c 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-inquiry {
+            background: linear-gradient(135deg, #d4145a 0%, #f94f5c 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(212, 20, 90, 0.3);
+        }
+
+        .btn-inquiry:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(212, 20, 90, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+        }
+
+        .about h3 {
+            color: #d4145a;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, #d4145a 0%, #fbb03b 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.95;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .product-card {
+                box-shadow: 0 3px 12px rgba(212, 20, 90, 0.1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav h1 {
+                font-size: 1.3rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-footer {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div>
+                <h1>🌹 Al-Munir Boutique</h1>
+                <p>Premium Unstitched Dresses</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>✨ Exquisite Unstitched Dress Collection</h2>
+        <p>Handpicked designs crafted for your elegance</p>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- About Section -->
+        <section class="about">
+            <h3>Welcome to Al-Munir Boutique</h3>
+            <p>
+                We bring you the finest collection of unstitched ladies' dresses, carefully curated for those who appreciate quality and style. Each design is selected to offer comfort, elegance, and timeless appeal.
+            </p>
+            <p>
+                📞 <strong>Order on WhatsApp:</strong> Click on any design below to place your inquiry
+            </p>
+        </section>
+
+        <!-- Products Section -->
+        <section class="section">
+            <h2>Our Designs</h2>
+            <div class="products-grid">
+                <!-- Design 1 -->
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #fbb03b 0%, #f94f5c 100%);">
+                        <span>Design 1</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Summer Collection</div>
+                        <div class="product-name">Summer Rose</div>
+                        <div class="product-description">Beautiful summer design with floral patterns and comfortable fabric</div>
+                        <div class="product-price">Rs. 2,500</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Summer%20Rose%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 2 -->
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #d4145a 0%, #fbb03b 100%);">
+                        <span>Design 2</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Casual</div>
+                        <div class="product-name">Pink Dreams</div>
+                        <div class="product-description">Elegant pink design perfect for everyday wear</div>
+                        <div class="product-price">Rs. 2,300</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Pink%20Dreams%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 3 -->
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #20ba5c 0%, #17a4b8 100%);">
+                        <span>Design 3</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Formal</div>
+                        <div class="product-name">Teal Elegance</div>
+                        <div class="product-description">Sophisticated teal design for formal occasions</div>
+                        <div class="product-price">Rs. 2,800</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Teal%20Elegance%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 4 -->
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);">
+                        <span>Design 4</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Party</div>
+                        <div class="product-name">Golden Hour</div>
+                        <div class="product-description">Luxurious golden design for special occasions</div>
+                        <div class="product-price">Rs. 3,200</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Golden%20Hour%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 5 -->
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #f94f5c 0%, #d4145a 100%);">
+                        <span>Design 5</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Classic</div>
+                        <div class="product-name">Crimson Grace</div>
+                        <div class="product-description">Classic crimson design with traditional touch</div>
+                        <div class="product-price">Rs. 2,600</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Crimson%20Grace%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 6 -->
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #e0a76f 0%, #d4a574 100%);">
+                        <span>Design 6</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Premium</div>
+                        <div class="product-name">Rose Gold Charm</div>
+                        <div class="product-description">Premium rose gold design with embroidered details</div>
+                        <div class="product-price">Rs. 3,500</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Rose%20Gold%20Charm%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 7 -->
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #8b4789 0%, #c85a7c 100%);">
+                        <span>Design 7</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Seasonal</div>
+                        <div class="product-name">Purple Passion</div>
+                        <div class="product-description">Stunning purple design for festive season</div>
+                        <div class="product-price">Rs. 2,900</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Purple%20Passion%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 8 -->
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #fbb03b 0%, #ff9a76 100%);">
+                        <span>Design 8</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Trendy</div>
+                        <div class="product-name">Peachy Keen</div>
+                        <div class="product-description">Modern peachy design with contemporary style</div>
+                        <div class="product-price">Rs. 2,400</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Peachy%20Keen%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 9 -->
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #17a4b8 0%, #20ba5c 100%);">
+                        <span>Design 9</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Modern</div>
+                        <div class="product-name">Seafoam Serenity</div>
+                        <div class="product-description">Fresh seafoam design with minimalist appeal</div>
+                        <div class="product-price">Rs. 2,350</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Seafoam%20Serenity%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 10 -->
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #f94f5c 0%, #fbb03b 100%);">
+                        <span>Design 10</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Exclusive</div>
+                        <div class="product-name">Sunset Bliss</div>
+                        <div class="product-description">Exclusive sunset-inspired design with unique charm</div>
+                        <div class="product-price">Rs. 3,100</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Sunset%20Bliss%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Al-Munir Boutique | Premium Unstitched Dresses</p>
+        <p>📞 Order via WhatsApp | 💌 Quality Guaranteed</p>
+    </footer>
+</body>
+</html>
