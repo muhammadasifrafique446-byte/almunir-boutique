@@ -36,18 +36,55 @@
             align-items: center;
         }
 
-        nav h1 {
+        /* Brand Section */
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .brand-text h1 {
             color: white;
             font-size: 1.9rem;
             font-weight: 800;
             letter-spacing: 1.5px;
+            margin-bottom: 0.3rem;
         }
 
-        nav p {
+        .brand-text p {
             color: rgba(255, 255, 255, 0.95);
             font-size: 0.95rem;
             font-style: italic;
             font-weight: 500;
+        }
+
+        /* Logo Section */
+        .brand-logos {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .brand-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .brand-logo:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.08);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
 
         /* Hero Section */
@@ -307,6 +344,25 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .brand-section {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .brand-logos {
+                order: 2;
+            }
+
+            .brand-text {
+                order: 1;
+            }
+
             .hero h2 {
                 font-size: 2rem;
             }
@@ -326,8 +382,13 @@
         }
 
         @media (max-width: 480px) {
-            nav h1 {
+            .brand-text h1 {
                 font-size: 1.4rem;
+            }
+
+            .brand-logo {
+                width: 60px;
+                height: 60px;
             }
 
             .hero h2 {
@@ -352,9 +413,19 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div>
-                <h1>🌹 Al-Munir Boutique</h1>
-                <p>Premium Unstitched Dresses</p>
+            <div class="brand-section">
+                <div class="brand-text">
+                    <h1>🌹 Al-Munir Boutique</h1>
+                    <p>Premium Unstitched Dresses</p>
+                </div>
+                <div class="brand-logos">
+                    <div class="brand-logo">
+                        <img src="images/design1.jpg" alt="Design 1">
+                    </div>
+                    <div class="brand-logo">
+                        <img src="images/design2.jpg" alt="Design 2">
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
