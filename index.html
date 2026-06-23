@@ -1,10 +1,9 @@
-<!-- Updated: 1782194666 - Cache bust -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Munir Boutique - Unstitched Dresses</title>
+    <title>Al-Munir Boutique - Premium Unstitched Dresses</title>
     <style>
         * {
             margin: 0;
@@ -14,19 +13,19 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #faf3f0 0%, #f5e6e0 100%);
-            color: #333;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5f0eb 100%);
+            color: #4a4a4a;
             line-height: 1.6;
         }
 
         /* Navigation */
         nav {
-            background: linear-gradient(90deg, #d4145a 0%, #fbb03b 100%);
-            padding: 1rem 2rem;
+            background: linear-gradient(90deg, #8B6F47 0%, #A0826D 100%);
+            padding: 1.2rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(212, 20, 90, 0.3);
+            box-shadow: 0 6px 20px rgba(139, 111, 71, 0.25);
         }
 
         nav .container {
@@ -39,36 +38,40 @@
 
         nav h1 {
             color: white;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
         }
 
         nav p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.95rem;
             font-style: italic;
+            font-weight: 500;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #d4145a 0%, #f94f5c 50%, #fbb03b 100%);
+            background: linear-gradient(135deg, #8B6F47 0%, #A0826D 50%, #d4145a 100%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
             animation: fadeInDown 0.8s ease-out;
         }
 
         .hero h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
+            opacity: 0.98;
+            font-weight: 500;
         }
 
         /* Container */
@@ -80,16 +83,18 @@
 
         /* Section Styles */
         .section {
-            padding: 4rem 2rem;
+            padding: 4.5rem 2rem;
         }
 
         .section h2 {
             text-align: center;
-            font-size: 2.2rem;
-            color: #d4145a;
-            margin-bottom: 3rem;
+            font-size: 2.4rem;
+            color: #8B6F47;
+            margin-bottom: 3.5rem;
             position: relative;
-            padding-bottom: 1rem;
+            padding-bottom: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
         }
 
         .section h2::after {
@@ -98,9 +103,9 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, #fbb03b, #d4145a);
+            background: linear-gradient(90deg, #8B6F47, #d4145a);
             border-radius: 2px;
         }
 
@@ -108,79 +113,92 @@
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             animation: fadeInUp 0.8s ease-out;
         }
 
         .product-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(212, 20, 90, 0.15);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(139, 111, 71, 0.12);
+            transition: all 0.4s ease;
             cursor: pointer;
             display: flex;
             flex-direction: column;
+            border: 1px solid rgba(139, 111, 71, 0.08);
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(212, 20, 90, 0.25);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 45px rgba(139, 111, 71, 0.2);
+            border-color: rgba(139, 111, 71, 0.15);
         }
 
         .product-image {
             width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
+            height: 300px;
+            background: linear-gradient(135deg, #ede8e3 0%, #f5f0eb 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: #bbb;
+            font-size: 3.5rem;
+            color: #d4c5b9;
             font-weight: bold;
             overflow: hidden;
+            position: relative;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
         }
 
         .product-info {
-            padding: 1.5rem;
+            padding: 2rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            background: white;
         }
 
         .product-name {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: #d4145a;
+            color: #8B6F47;
             margin-bottom: 0.5rem;
+            letter-spacing: 0.2px;
         }
 
         .product-category {
             font-size: 0.85rem;
-            color: #fbb03b;
+            color: #d4145a;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
+            font-weight: 700;
             margin-bottom: 0.8rem;
         }
 
         .product-description {
             font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 1rem;
+            color: #6a6a6a;
+            margin-bottom: 1.2rem;
             flex-grow: 1;
+            line-height: 1.7;
         }
 
         .product-price {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 800;
             color: #d4145a;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.3px;
         }
 
         .product-footer {
@@ -190,76 +208,78 @@
 
         /* Buttons */
         .btn {
-            padding: 0.75rem 1.5rem;
+            padding: 0.9rem 1.8rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             flex: 1;
             text-align: center;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .btn-whatsapp {
             background: linear-gradient(135deg, #25d366 0%, #20ba5c 100%);
             color: white;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
         }
 
         .btn-whatsapp:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-inquiry {
-            background: linear-gradient(135deg, #d4145a 0%, #f94f5c 100%);
-            color: white;
-            box-shadow: 0 4px 12px rgba(212, 20, 90, 0.3);
-        }
-
-        .btn-inquiry:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(212, 20, 90, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
         }
 
         /* About Section */
         .about {
-            background: white;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5f0eb 100%);
+            border-radius: 16px;
             padding: 3rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 15px rgba(139, 111, 71, 0.08);
             margin-bottom: 3rem;
+            border-left: 5px solid #8B6F47;
         }
 
         .about h3 {
-            color: #d4145a;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            color: #8B6F47;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
         }
 
         .about p {
-            color: #666;
-            margin-bottom: 1rem;
+            color: #5a5a5a;
+            margin-bottom: 1.2rem;
             line-height: 1.8;
+            font-size: 1rem;
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(90deg, #d4145a 0%, #fbb03b 100%);
+            background: linear-gradient(90deg, #8B6F47 0%, #A0826D 100%);
             color: white;
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 2.5rem;
+            margin-top: 5rem;
+            box-shadow: 0 -4px 15px rgba(139, 111, 71, 0.15);
         }
 
         footer p {
             opacity: 0.95;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        footer p:first-child {
+            font-weight: 700;
         }
 
         /* Animations */
@@ -288,30 +308,30 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero h2 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 1.5rem;
+                gap: 1.8rem;
             }
 
             .section {
-                padding: 2rem 1rem;
+                padding: 2.5rem 1rem;
             }
 
-            .product-card {
-                box-shadow: 0 3px 12px rgba(212, 20, 90, 0.1);
+            .about {
+                padding: 2rem;
             }
         }
 
         @media (max-width: 480px) {
             nav h1 {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
 
             .hero h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
 
             .products-grid {
@@ -374,7 +394,7 @@
                         <div class="product-price">Rs. 2,500</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Summer%20Rose%20design" class="btn btn-whatsapp" target="_blank">
-                                💬 WhatsApp
+                                💬 Inquire Now
                             </a>
                         </div>
                     </div>
@@ -390,7 +410,7 @@
                         <div class="product-price">Rs. 2,300</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Pink%20Dreams%20design" class="btn btn-whatsapp" target="_blank">
-                                💬 WhatsApp
+                                💬 Inquire Now
                             </a>
                         </div>
                     </div>
@@ -406,7 +426,7 @@
                         <div class="product-price">Rs. 2,800</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Teal%20Elegance%20design" class="btn btn-whatsapp" target="_blank">
-                                💬 WhatsApp
+                                💬 Inquire Now
                             </a>
                         </div>
                     </div>
@@ -422,7 +442,7 @@
                         <div class="product-price">Rs. 3,200</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Golden%20Hour%20design" class="btn btn-whatsapp" target="_blank">
-                                💬 WhatsApp
+                                💬 Inquire Now
                             </a>
                         </div>
                     </div>
@@ -438,7 +458,7 @@
                         <div class="product-price">Rs. 2,600</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Crimson%20Grace%20design" class="btn btn-whatsapp" target="_blank">
-                                💬 WhatsApp
+                                💬 Inquire Now
                             </a>
                         </div>
                     </div>
@@ -454,7 +474,7 @@
                         <div class="product-price">Rs. 3,500</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Rose%20Gold%20Charm%20design" class="btn btn-whatsapp" target="_blank">
-                                💬 WhatsApp
+                                💬 Inquire Now
                             </a>
                         </div>
                     </div>
@@ -470,7 +490,7 @@
                         <div class="product-price">Rs. 2,900</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Purple%20Passion%20design" class="btn btn-whatsapp" target="_blank">
-                                💬 WhatsApp
+                                💬 Inquire Now
                             </a>
                         </div>
                     </div>
@@ -486,7 +506,7 @@
                         <div class="product-price">Rs. 2,400</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Peachy%20Keen%20design" class="btn btn-whatsapp" target="_blank">
-                                💬 WhatsApp
+                                💬 Inquire Now
                             </a>
                         </div>
                     </div>
@@ -502,7 +522,7 @@
                         <div class="product-price">Rs. 2,350</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Seafoam%20Serenity%20design" class="btn btn-whatsapp" target="_blank">
-                                💬 WhatsApp
+                                💬 Inquire Now
                             </a>
                         </div>
                     </div>
@@ -518,7 +538,7 @@
                         <div class="product-price">Rs. 3,100</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Sunset%20Bliss%20design" class="btn btn-whatsapp" target="_blank">
-                                💬 WhatsApp
+                                💬 Inquire Now
                             </a>
                         </div>
                     </div>
@@ -529,8 +549,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Al-Munir Boutique | Premium Unstitched Dresses</p>
-        <p>📞 Order via WhatsApp | 💌 Quality Guaranteed</p>
+        <p>© 2026 Al-Munir Boutique | Premium Unstitched Dresses</p>
+        <p>🌹 Crafted with elegance | 💬 Order via WhatsApp | ✨ Quality Guaranteed</p>
     </footer>
 </body>
 </html>
