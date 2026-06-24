@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Munir Boutique - Premium Unstitched Dresses</title>
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>Al-Munir Boutique - Premium Dresses (Stitched & Unstitched)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -35,9 +35,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 2rem;
         }
 
-        /* Brand Name - Glowing Calligraphy */
+        /* Brand Section */
+        .brand-info {
+            flex: 1;
+        }
+
+        /* Brand Name - Multi-color Dark Gradient */
         nav h1 {
             font-family: 'Allura', cursive;
             font-size: 2.8rem;
@@ -56,8 +62,40 @@
             color: rgba(255, 255, 255, 0.95);
             font-size: 0.95rem;
             font-style: italic;
-            font-weight: 500;
+            font-weight: 600;
             margin-top: 0.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Dress Models Section */
+        .dress-models {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .dress-model {
+            width: 80px;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .dress-model img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dress-model:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
         }
 
         /* Hero Section */
@@ -309,19 +347,23 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-        nav h1 {
-            font-family: 'Allura', cursive;
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            margin: 0;
-            background: linear-gradient(135deg, #3E2723 0%, #8B1538 25%, #5C4033 50%, #C41E3A 75%, #2C1810 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
-            line-height: 1.2;
-        }
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav h1 {
+                font-size: 2.2rem;
+            }
+
+            .dress-models {
+                order: 2;
+            }
+
+            .brand-info {
+                order: 1;
+                text-align: center;
+            }
 
             .hero h2 {
                 font-size: 2rem;
@@ -342,19 +384,14 @@
         }
 
         @media (max-width: 480px) {
-        nav h1 {
-            font-family: 'Allura', cursive;
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            margin: 0;
-            background: linear-gradient(135deg, #3E2723 0%, #8B1538 25%, #5C4033 50%, #C41E3A 75%, #2C1810 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
-            line-height: 1.2;
-        }
+            nav h1 {
+                font-size: 1.8rem;
+            }
+
+            .dress-model {
+                width: 70px;
+                height: 90px;
+            }
 
             .hero h2 {
                 font-size: 1.6rem;
@@ -378,17 +415,25 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div>
+            <div class="brand-info">
                 <h1>Al-Munir Boutique 🌹</h1>
-                <p>Premium Unstitched Dresses</p>
+                <p>✨ Stitched & Unstitched Dresses ✨</p>
+            </div>
+            <div class="dress-models">
+                <div class="dress-model">
+                    <img src="images/design5.jpg" alt="Model 1">
+                </div>
+                <div class="dress-model">
+                    <img src="images/design6.jpg" alt="Model 2">
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h2>✨ Exquisite Unstitched Dress Collection</h2>
-        <p>Handpicked designs crafted for your elegance</p>
+        <h2>✨ Exquisite Dress Collection</h2>
+        <p>Premium Stitched & Unstitched Designs</p>
     </section>
 
     <!-- Main Container -->
@@ -397,10 +442,10 @@
         <section class="about">
             <h3>Welcome to Al-Munir Boutique</h3>
             <p>
-                We bring you the finest collection of unstitched ladies' dresses, carefully curated for those who appreciate quality and style. Each design is selected to offer comfort, elegance, and timeless appeal.
+                We bring you the finest collection of **stitched and unstitched ladies' dresses**, carefully curated for those who appreciate quality and style. Whether you prefer ready-made stitched designs or the flexibility of unstitched fabric, we have something perfect for you.
             </p>
             <p>
-                📞 <strong>Order on WhatsApp:</strong> Click "Inquire Now" to place your order
+                📞 <strong>Order on WhatsApp:</strong> Click "Inquire Now" to place your order or ask about customization
             </p>
         </section>
 
@@ -416,7 +461,7 @@
                     <div class="product-info">
                         <div class="product-category">Summer Collection</div>
                         <div class="product-name">Summer Rose</div>
-                        <div class="product-description">Beautiful summer design with floral patterns and comfortable fabric</div>
+                        <div class="product-description">Beautiful summer design with floral patterns - Available in Stitched & Unstitched</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Summer%20Rose%20design" class="btn btn-whatsapp" target="_blank">
                                 💬 Inquire Now
@@ -431,7 +476,7 @@
                     <div class="product-info">
                         <div class="product-category">Casual</div>
                         <div class="product-name">Pink Dreams</div>
-                        <div class="product-description">Elegant pink design perfect for everyday wear</div>
+                        <div class="product-description">Elegant pink design - Available in Stitched & Unstitched</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Pink%20Dreams%20design" class="btn btn-whatsapp" target="_blank">
                                 💬 Inquire Now
@@ -446,7 +491,7 @@
                     <div class="product-info">
                         <div class="product-category">Formal</div>
                         <div class="product-name">Teal Elegance</div>
-                        <div class="product-description">Sophisticated teal design for formal occasions</div>
+                        <div class="product-description">Sophisticated teal design - Available in Stitched & Unstitched</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Teal%20Elegance%20design" class="btn btn-whatsapp" target="_blank">
                                 💬 Inquire Now
@@ -461,7 +506,7 @@
                     <div class="product-info">
                         <div class="product-category">Party</div>
                         <div class="product-name">Golden Hour</div>
-                        <div class="product-description">Luxurious golden design for special occasions</div>
+                        <div class="product-description">Luxurious golden design - Available in Stitched & Unstitched</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Golden%20Hour%20design" class="btn btn-whatsapp" target="_blank">
                                 💬 Inquire Now
@@ -476,7 +521,7 @@
                     <div class="product-info">
                         <div class="product-category">Classic</div>
                         <div class="product-name">Crimson Grace</div>
-                        <div class="product-description">Classic crimson design with traditional touch</div>
+                        <div class="product-description">Classic crimson design - Available in Stitched & Unstitched</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Crimson%20Grace%20design" class="btn btn-whatsapp" target="_blank">
                                 💬 Inquire Now
@@ -491,7 +536,7 @@
                     <div class="product-info">
                         <div class="product-category">Premium</div>
                         <div class="product-name">Rose Gold Charm</div>
-                        <div class="product-description">Premium rose gold design with embroidered details</div>
+                        <div class="product-description">Premium rose gold design - Available in Stitched & Unstitched</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Rose%20Gold%20Charm%20design" class="btn btn-whatsapp" target="_blank">
                                 💬 Inquire Now
@@ -506,7 +551,7 @@
                     <div class="product-info">
                         <div class="product-category">Seasonal</div>
                         <div class="product-name">Purple Passion</div>
-                        <div class="product-description">Stunning purple design for festive season</div>
+                        <div class="product-description">Stunning purple design - Available in Stitched & Unstitched</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Purple%20Passion%20design" class="btn btn-whatsapp" target="_blank">
                                 💬 Inquire Now
@@ -521,7 +566,7 @@
                     <div class="product-info">
                         <div class="product-category">Trendy</div>
                         <div class="product-name">Peachy Keen</div>
-                        <div class="product-description">Modern peachy design with contemporary style</div>
+                        <div class="product-description">Modern peachy design - Available in Stitched & Unstitched</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Peachy%20Keen%20design" class="btn btn-whatsapp" target="_blank">
                                 💬 Inquire Now
@@ -536,7 +581,7 @@
                     <div class="product-info">
                         <div class="product-category">Modern</div>
                         <div class="product-name">Seafoam Serenity</div>
-                        <div class="product-description">Fresh seafoam design with minimalist appeal</div>
+                        <div class="product-description">Fresh seafoam design - Available in Stitched & Unstitched</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Seafoam%20Serenity%20design" class="btn btn-whatsapp" target="_blank">
                                 💬 Inquire Now
@@ -551,7 +596,7 @@
                     <div class="product-info">
                         <div class="product-category">Exclusive</div>
                         <div class="product-name">Sunset Bliss</div>
-                        <div class="product-description">Exclusive sunset-inspired design with unique charm</div>
+                        <div class="product-description">Exclusive sunset design - Available in Stitched & Unstitched</div>
                         <div class="product-footer">
                             <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Sunset%20Bliss%20design" class="btn btn-whatsapp" target="_blank">
                                 💬 Inquire Now
@@ -565,7 +610,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Al-Munir Boutique | Premium Unstitched Dresses</p>
+        <p>© 2026 Al-Munir Boutique | Premium Stitched & Unstitched Dresses</p>
         <p>🌹 Crafted with elegance | 💬 Order via WhatsApp | ✨ Quality Guaranteed</p>
     </footer>
 </body>
