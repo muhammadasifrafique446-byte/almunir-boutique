@@ -6,29 +6,6 @@
     <title>Al-Munir Boutique - Premium Dresses (Stitched & Unstitched)</title>
     <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
     <style>
-        .welcome-section {
-            text-align: center;
-            padding: 3rem 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .welcome-section p {
-            font-size: 1.3rem;
-            color: #6a6a6a;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
-        }
-        
-        .welcome-brand {
-            font-family: 'Allura', cursive;
-            font-size: 3.2rem;
-            font-weight: 700;
-            color: #000000;
-            letter-spacing: 2px;
-            margin: 0;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
         * {
             margin: 0;
             padding: 0;
@@ -40,6 +17,66 @@
             background: linear-gradient(135deg, #faf8f5 0%, #f5f0eb 100%);
             color: #4a4a4a;
             line-height: 1.6;
+        }
+
+        /* ZOOM MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 800px;
+            padding: 2rem;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #d4145a;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         /* Navigation */
@@ -61,12 +98,10 @@
             gap: 2rem;
         }
 
-        /* Brand Section */
         .brand-info {
             flex: 1;
         }
 
-        /* Brand Name - Multi-color Dark Gradient */
         nav h1 {
             font-family: 'Allura', cursive;
             font-size: 2.8rem;
@@ -90,7 +125,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Dress Models Section */
         .dress-models {
             display: flex;
             gap: 1.2rem;
@@ -145,14 +179,12 @@
             font-weight: 500;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Section Styles */
         .section {
             padding: 4.5rem 2rem;
         }
@@ -218,6 +250,7 @@
             font-weight: bold;
             overflow: hidden;
             position: relative;
+            cursor: pointer;
         }
 
         .product-image img {
@@ -404,6 +437,11 @@
             .about {
                 padding: 2rem;
             }
+
+            .modal-content {
+                width: 95%;
+                padding: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -435,6 +473,14 @@
     </style>
 </head>
 <body>
+    <!-- Zoom Modal -->
+    <div id="zoomModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img id="zoomImage" src="" alt="Zoomed Design">
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="container">
@@ -462,14 +508,13 @@
     <!-- Main Container -->
     <div class="container">
         <!-- About Section -->
-        <!-- Welcome Section -->
-        <section class="welcome-section">
-            <p>Welcome to</p>
-            <h2 class="welcome-brand">Al-Munir Boutique 🌹</h2>
-        </section>
         <section class="about">
+            <h3>Welcome to Al-Munir Boutique</h3>
             <p>
-                We bring you the finest collection of **stitched and unstitched ladies' dresses**, carefully curated for those who appreciate quality and style. Whether you prefer ready-made stitched designs or the flexibility of unstitched fabric, we have something perfect for you.
+                We bring you the finest collection of <strong>stitched and unstitched ladies' dresses</strong>, carefully curated for those who appreciate quality and style. Whether you prefer ready-made stitched designs or the flexibility of unstitched fabric, we have something perfect for you.
+            </p>
+            <p>
+                Each design features premium fabrics, intricate embroidery, and exquisite craftsmanship. From formal occasions to casual wear, our collection celebrates elegance and tradition.
             </p>
             <p>
                 📞 <strong>Order on WhatsApp:</strong> Click "Inquire Now" to place your order or ask about customization
@@ -482,7 +527,7 @@
             <div class="products-grid">
                 <!-- Design 1 -->
                 <div class="product-card">
-                    <div class="product-image">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
                         <img src="images/design1.jpg" alt="Summer Rose">
                     </div>
                     <div class="product-info">
@@ -499,7 +544,9 @@
 
                 <!-- Design 2 -->
                 <div class="product-card">
-                    <div class="product-image"><img src="images/design2.jpg" alt="Pink Dreams"></div>
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design2.jpg" alt="Pink Dreams">
+                    </div>
                     <div class="product-info">
                         <div class="product-category">Casual</div>
                         <div class="product-name">Pink Dreams</div>
@@ -514,7 +561,9 @@
 
                 <!-- Design 3 -->
                 <div class="product-card">
-                    <div class="product-image"><img src="images/design3.jpg" alt="Teal Elegance"></div>
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design3.jpg" alt="Teal Elegance">
+                    </div>
                     <div class="product-info">
                         <div class="product-category">Formal</div>
                         <div class="product-name">Teal Elegance</div>
@@ -529,7 +578,9 @@
 
                 <!-- Design 4 -->
                 <div class="product-card">
-                    <div class="product-image"><img src="images/design4.jpg" alt="Golden Hour"></div>
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design4.jpg" alt="Golden Hour">
+                    </div>
                     <div class="product-info">
                         <div class="product-category">Party</div>
                         <div class="product-name">Golden Hour</div>
@@ -544,7 +595,9 @@
 
                 <!-- Design 5 -->
                 <div class="product-card">
-                    <div class="product-image"><img src="images/design5.jpg" alt="Crimson Grace"></div>
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design5.jpg" alt="Crimson Grace">
+                    </div>
                     <div class="product-info">
                         <div class="product-category">Classic</div>
                         <div class="product-name">Crimson Grace</div>
@@ -559,7 +612,9 @@
 
                 <!-- Design 6 -->
                 <div class="product-card">
-                    <div class="product-image"><img src="images/design6.jpg" alt="Rose Gold Charm"></div>
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design6.jpg" alt="Rose Gold Charm">
+                    </div>
                     <div class="product-info">
                         <div class="product-category">Premium</div>
                         <div class="product-name">Rose Gold Charm</div>
@@ -574,7 +629,9 @@
 
                 <!-- Design 7 -->
                 <div class="product-card">
-                    <div class="product-image"><img src="images/design7.jpg" alt="Purple Passion"></div>
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design7.jpg" alt="Purple Passion">
+                    </div>
                     <div class="product-info">
                         <div class="product-category">Seasonal</div>
                         <div class="product-name">Purple Passion</div>
@@ -589,7 +646,9 @@
 
                 <!-- Design 8 -->
                 <div class="product-card">
-                    <div class="product-image"><img src="images/design8.jpg" alt="Peachy Keen"></div>
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design8.jpg" alt="Peachy Keen">
+                    </div>
                     <div class="product-info">
                         <div class="product-category">Trendy</div>
                         <div class="product-name">Peachy Keen</div>
@@ -604,7 +663,9 @@
 
                 <!-- Design 9 -->
                 <div class="product-card">
-                    <div class="product-image"><img src="images/design9.jpg" alt="Seafoam Serenity"></div>
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design9.jpg" alt="Seafoam Serenity">
+                    </div>
                     <div class="product-info">
                         <div class="product-category">Modern</div>
                         <div class="product-name">Seafoam Serenity</div>
@@ -619,7 +680,9 @@
 
                 <!-- Design 10 -->
                 <div class="product-card">
-                    <div class="product-image"><img src="images/design10.jpg" alt="Sunset Bliss"></div>
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design10.jpg" alt="Sunset Bliss">
+                    </div>
                     <div class="product-info">
                         <div class="product-category">Exclusive</div>
                         <div class="product-name">Sunset Bliss</div>
@@ -631,6 +694,245 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Design 11 - Swiss Lawn Embroidery -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design11.jpg" alt="Swiss Lawn Embroidery">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Premium</div>
+                        <div class="product-name">Swiss Lawn Embroidery</div>
+                        <div class="product-description">Elegant black suit with intricate Swiss lawn embroidery work. Premium quality stitched design perfect for formal occasions. Features detailed embroidered patterns throughout the shirt and dupatta with fine needle work.</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Swiss%20Lawn%20Embroidery%20design%20-%207000%20PKR" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 12 - Chicken Kari Tissue -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design12.jpg" alt="Chicken Kari Tissue Work">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Luxury</div>
+                        <div class="product-name">Chicken Kari Tissue Work</div>
+                        <div class="product-description">Gorgeous beige/cream suit featuring chicken kari tissue work with pearls embroidery. Stitched design with embroidered dupatta and detailed sleeves. Premium fabric with tissue work and pearl accents throughout. Price: 7200 PKR</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Chicken%20Kari%20Tissue%20Work%20-%207200%20PKR" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 13 - Sequence Embroidery Suit -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design13.jpg" alt="Sequence Embroidery Suit">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Formal</div>
+                        <div class="product-name">Sequence Embroidery Suit</div>
+                        <div class="product-description">Cream colored unstitched suit with high quality lawn fabric (88/102 count). Features clean and neat embroidery with sequence work. Elaborate neckline embroidery, embroidered shirt, sleeves, and daman with patch embroidery. Monar lawn 3-meter dupatta. Perfect for stitching. Price: 5200 PKR</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Sequence%20Embroidery%20Suit%20-%205200%20PKR" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 14 - Green Fancy Lawn Dupatta -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design14.jpg" alt="Green Fancy Lawn Dupatta">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Premium</div>
+                        <div class="product-name">Green Fancy Lawn Dupatta</div>
+                        <div class="product-description">Exclusive fancy lawn shirt with printed lawn dupatta in beautiful green and cream combination. Stitched design featuring detailed print work on dupatta. Perfect for casual and semi-formal wear. Premium quality fabric with comfortable fit.</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Green%20Fancy%20Lawn%20Dupatta%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 15 - Cream Embroidered Suit -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design15.jpg" alt="Cream Embroidered Suit">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Stitched</div>
+                        <div class="product-name">Cream Embroidered Suit</div>
+                        <div class="product-description">Beautiful cream colored stitched suit with purple embroidery work. Featuring embroidered neckline, sleeves, and dupatta with intricate floral patterns. Perfect for festive occasions and formal gatherings. Premium quality stitched design.</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Cream%20Embroidered%20Suit%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 16 - Premium Lawn Collection Rose -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design16.jpg" alt="Premium Lawn Rose">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Stitched</div>
+                        <div class="product-name">Premium Lawn Rose</div>
+                        <div class="product-description">Stunning rose/pink lawn collection. Stitched design with premium quality fabric. Features embroidered dupatta with beautiful design patterns. Perfect for casual and semi-formal occasions. Comfortable fit for all-day wear. Original Price: 4500 | After Discount: 3500 PKR</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Premium%20Lawn%20Rose%20-%203500%20PKR" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 17 - Navy Fancy Jacquard -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design17.jpg" alt="Navy Fancy Jacquard">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Premium</div>
+                        <div class="product-name">Navy Fancy Jacquard</div>
+                        <div class="product-description">Elegant navy blue fancy Jacquard series. Stitched design with premium quality Jacquard fabric featuring intricate golden patterns. Complete outfit with embroidered dupatta. Perfect for formal events and special occasions. Original Price: 5000 | After Discount: 4800 PKR</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Navy%20Fancy%20Jacquard%20-%204800%20PKR" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 18 - Red Maroon Stitched -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design18.jpg" alt="Red Maroon Stitched">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Stitched</div>
+                        <div class="product-name">Red Maroon Stitched</div>
+                        <div class="product-description">Beautiful red/maroon stitched suit with white matching pants. Premium quality fabric with embroidered dupatta. Features decorative kalis on sleeves and embroidered patterns throughout. Perfect for casual and festive wear. Comfortable stitched design.</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Red%20Maroon%20Stitched%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 19 - Purple Bareeza by Shanaya -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design19.jpg" alt="Bareeza by Shanaya Purple">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Luxury</div>
+                        <div class="product-name">Bareeza by Shanaya - Purple</div>
+                        <div class="product-description">Gorgeous purple stitched design from Bareeza by Shanaya collection. Features print and fancy embroidered lawn series with premium quality fabric. Sequined embroidery on dupatta with elegant patterns. Perfect for semi-formal and festive occasions. Original Price: 5000 | After Discount: 4000 PKR</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Bareeza%20Purple%20-%204000%20PKR" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 20 - Blue Embroidered Shirt -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design20.jpg" alt="Blue Embroidered Shirt">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Stitched</div>
+                        <div class="product-name">Blue Embroidered Shirt</div>
+                        <div class="product-description">Stunning blue stitched shirt with white matching pants. Features intricate embroidery on neckline and sleeves with colorful floral patterns. Premium quality fabric with embroidered dupatta. Perfect for festive and casual wear. Elegant and comfortable design.</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Blue%20Embroidered%20Shirt%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 21 - Navy Fancy Embroidered -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design21.jpg" alt="Navy Fancy Embroidered">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Premium</div>
+                        <div class="product-name">Navy Fancy Embroidered</div>
+                        <div class="product-description">Elegant navy blue stitched suit with cream colored pants. Features premium embroidered neckline and sleeves with pink and gold patterns. Matching embroidered dupatta with detailed work. Perfect for formal occasions and family gatherings.</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Navy%20Fancy%20Embroidered%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 22 - Maroon Fancy Jacquard Series -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design22.jpg" alt="Maroon Fancy Jacquard Series">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Premium</div>
+                        <div class="product-name">Maroon Fancy Jacquard Series</div>
+                        <div class="product-description">Luxurious maroon Jacquard series stitched design. Features premium quality Jacquard fabric with intricate golden and silver embroidery patterns. Complete outfit with embroidered dupatta. Perfect for weddings and formal events. Original Price: 5000 | After Discount: 4800 PKR</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Maroon%20Fancy%20Jacquard%20-%204800%20PKR" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 23 - White Red Embroidered -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design23.jpg" alt="White Red Embroidered">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Stitched</div>
+                        <div class="product-name">White Red Embroidered</div>
+                        <div class="product-description">Beautiful white stitched shirt with red embroidery work and cream colored pants. Features detailed embroidered neckline with red borders and floral patterns. Premium quality fabric with matching embroidered dupatta. Perfect for casual and semi-formal occasions.</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20White%20Red%20Embroidered%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 24 - Yellow Gold Embroidered -->
+                <div class="product-card">
+                    <div class="product-image" onclick="zoomImage(this.querySelector('img').src)">
+                        <img src="images/design24.jpg" alt="Yellow Gold Embroidered">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Premium</div>
+                        <div class="product-name">Yellow Gold Embroidered</div>
+                        <div class="product-description">Elegant yellow/gold stitched suit with pink embroidery work and matching pants. Features detailed yoke and neckline embroidery with floral and geometric patterns. Premium quality fabric with embroidered sleeve cuffs and hem work. Perfect for festive occasions and celebrations.</div>
+                        <div class="product-footer">
+                            <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27m%20interested%20in%20Yellow%20Gold%20Embroidered%20design" class="btn btn-whatsapp" target="_blank">
+                                💬 Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     </div>
@@ -640,5 +942,34 @@
         <p>© 2026 Al-Munir Boutique | Premium Stitched & Unstitched Dresses</p>
         <p>🌹 Crafted with elegance | 💬 Order via WhatsApp | ✨ Quality Guaranteed</p>
     </footer>
+
+    <script>
+        // Zoom functionality
+        const modal = document.getElementById("zoomModal");
+        const zoomImage = document.getElementById("zoomImage");
+        const closeModal = document.querySelector(".close-modal");
+
+        function zoomImage(imageSrc) {
+            modal.style.display = "block";
+            document.getElementById("zoomImage").src = imageSrc;
+        }
+
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                modal.style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html>
