@@ -470,7 +470,13 @@
                 width: 100%;
             }
         }
-        /* Animated Circle Section */
+        /* Flashing Al-Munir */
+        .flash-text,
+        .flashing-text {
+            animation: flashingBold 0.6s ease-in-out infinite;
+        }
+
+        /* Animated Circle with Flashing */
         .animated-circle-section {
             background: linear-gradient(135deg, #8B6F47 0%, #A0826D 50%, #d4145a 100%);
             padding: 3rem 2rem;
@@ -482,19 +488,13 @@
 
         .circle-container {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 1rem;
         }
 
-        .circle-wrapper {
-            position: relative;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .circle {
-            width: 120px;
-            height: 120px;
+        .flashing-circle {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             background: linear-gradient(135deg, #ffffff 0%, #f5f0eb 100%);
             border: 5px solid rgba(255, 255, 255, 0.6);
@@ -503,72 +503,53 @@
             justify-content: center;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.6);
             position: relative;
-            animation: pulse 2s ease-in-out infinite;
         }
 
-        .circle::before {
+        .flashing-circle::before {
             content: "";
             position: absolute;
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 3px solid rgba(212, 20, 90, 0.2);
-            animation: rotateBorder 4s linear infinite;
+            border: 3px solid rgba(212, 20, 90, 0.3);
+            animation: pulseRing 1s ease-out infinite;
         }
 
-        .circle-text {
+        .flashing-text {
             font-family: "Allura", cursive;
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: 2.8rem;
+            font-weight: 900;
             background: linear-gradient(135deg, #8B6F47 0%, #d4145a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             position: relative;
             z-index: 2;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            text-align: center;
         }
 
-        .munir-text {
-            font-family: "Allura", cursive;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: white;
-            text-decoration: underline;
-            text-decoration-color: rgba(255, 255, 255, 0.8);
-            text-decoration-thickness: 3px;
-            text-underline-offset: 8px;
-            letter-spacing: 1.5px;
-            animation: slideIn 0.8s ease-out 0.3s both;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-
-        @keyframes pulse {
+        @keyframes flashingBold {
             0%, 100% {
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+                opacity: 1;
+                font-weight: 900;
+                text-shadow: 0 0 10px rgba(212, 20, 90, 0.5);
             }
             50% {
-                box-shadow: 0 15px 50px rgba(212, 20, 90, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+                opacity: 0.3;
+                font-weight: 700;
+                text-shadow: none;
             }
         }
 
-        @keyframes rotateBorder {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
+        @keyframes pulseRing {
+            0% {
+                transform: scale(1);
                 opacity: 1;
-                transform: translateY(0);
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0;
             }
         }
 
@@ -578,17 +559,13 @@
                 padding: 2rem 1rem;
             }
 
-            .circle {
-                width: 100px;
-                height: 100px;
+            .flashing-circle {
+                width: 120px;
+                height: 120px;
             }
 
-            .circle-text {
-                font-size: 2.8rem;
-            }
-
-            .munir-text {
-                font-size: 1.8rem;
+            .flashing-text {
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -606,7 +583,7 @@
     <nav>
         <div class="container">
             <div class="brand-info">
-                <h1>Al-Munir Boutique 🌹</h1>
+                <h1><span class="flash-text">Al-Munir</span> Boutique 🌹</h1>
                 <p>✨ Stitched & Unstitched Dresses ✨</p>
             </div>
             <div class="dress-models">
@@ -621,15 +598,12 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- Animated Al-Munir Circle -->
+    <!-- Animated Flashing Al-Munir Circle -->
     <section class="animated-circle-section">
         <div class="circle-container">
-            <div class="circle-wrapper">
-                <div class="circle">
-                    <span class="circle-text">Al</span>
-                </div>
+            <div class="flashing-circle">
+                <span class="flashing-text">Al-Munir</span>
             </div>
-            <div class="munir-text">- Munir</div>
         </div>
     </section>
     <section class="hero">
