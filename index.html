@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Al-Munir Boutique - Premium Dresses (Stitched & Unstitched)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #faf8f5 0%, #f5f0eb 100%);
             color: #4a4a4a;
             line-height: 1.6;
@@ -154,26 +154,111 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #8B6F47 0%, #A0826D 50%, #d4145a 100%);
+            position: relative;
+            background: 
+                linear-gradient(135deg, rgba(62,39,35,0.75) 0%, rgba(139,111,71,0.7) 50%, rgba(196,30,58,0.6) 100%),
+                url('images/design2.jpg') center 20% / cover no-repeat;
             color: white;
-            padding: 5rem 2rem;
+            padding: 7rem 2rem 6rem 2rem;
             text-align: center;
             animation: fadeInDown 0.8s ease-out;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.25) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero span.tagline-pill {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(6px);
+            padding: 0.5rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
         .hero h2 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
             font-weight: 700;
             letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.15rem;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            margin-bottom: 2.2rem;
             opacity: 0.98;
-            font-weight: 500;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 0.95rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .hero-btn.primary {
+            background: white;
+            color: #8B6F47;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
+
+        .hero-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.7);
+        }
+
+        .hero-btn.secondary:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 5rem 1.2rem 4rem 1.2rem;
+            }
+            .hero h2 {
+                font-size: 2.1rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
         }
 
         .container {
@@ -237,7 +322,7 @@
 
         .product-image {
             width: 100%;
-            height: 340px;
+            height: 300px;
             background: linear-gradient(135deg, #ede8e3 0%, #f5f0eb 100%);
             display: flex;
             align-items: center;
@@ -247,29 +332,7 @@
             font-weight: bold;
             overflow: hidden;
             position: relative;
-            cursor: zoom-in;
-        }
-
-        .product-image::after {
-            content: '🔍';
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            background: rgba(255,255,255,0.9);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-
-        .product-card:hover .product-image::after {
-            opacity: 1;
+            cursor: pointer;
         }
 
         .product-image img {
@@ -633,91 +696,6 @@
                 text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
             }
         }
-    
-        /* Trust Features Bar */
-        .features-bar {
-            background: #fff;
-            padding: 2.2rem 1rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: -1px auto 0 auto;
-            border-bottom: 1px solid rgba(139,111,71,0.1);
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 0.5rem;
-        }
-
-        .feature-item .icon {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .feature-item .title {
-            font-weight: 700;
-            color: #8B6F47;
-            font-size: 0.9rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .feature-item .subtitle {
-            font-size: 0.78rem;
-            color: #8a8a8a;
-        }
-
-        @media (max-width: 768px) {
-            .features-bar {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-                padding: 1.5rem 1rem;
-            }
-        }
-
-        /* Floating WhatsApp Button */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: linear-gradient(135deg, #25d366 0%, #20ba5c 100%);
-            color: white;
-            width: 62px;
-            height: 62px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            text-decoration: none;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
-            z-index: 500;
-            animation: whatsappPulse 2s infinite;
-        }
-
-        @keyframes whatsappPulse {
-            0% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45); }
-            50% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7); }
-            100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45); }
-        }
-
-        @media (max-width: 480px) {
-            .floating-whatsapp {
-                width: 54px;
-                height: 54px;
-                font-size: 1.7rem;
-                bottom: 18px;
-                right: 18px;
-            }
-        }
-
-        /* Slightly refine hero readability with Poppins */
-        .hero h2, .hero p {
-            font-family: 'Poppins', sans-serif;
-        }
-
     </style>
 </head>
 <body>
@@ -746,30 +724,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Trust Features Bar -->
-    <div class="features-bar">
-        <div class="feature-item">
-            <span class="icon">🚚</span>
-            <div class="title">Nationwide Delivery</div>
-            <div class="subtitle">All across Pakistan</div>
-        </div>
-        <div class="feature-item">
-            <span class="icon">✅</span>
-            <div class="title">Quality Guaranteed</div>
-            <div class="subtitle">Premium fabrics only</div>
-        </div>
-        <div class="feature-item">
-            <span class="icon">✂️</span>
-            <div class="title">Stitched & Unstitched</div>
-            <div class="subtitle">Your choice, your fit</div>
-        </div>
-        <div class="feature-item">
-            <span class="icon">💬</span>
-            <div class="title">WhatsApp Ordering</div>
-            <div class="subtitle">Easy & fast checkout</div>
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <!-- Animated Flashing Al-Munir Circle -->
@@ -802,7 +756,7 @@
         </section>
 
         <!-- Products Section -->
-        <section class="section">
+        <section class="section" id="designs">
             <h2>Our Designs</h2>
             <div class="products-grid">
                 <!-- Design 1 -->
@@ -1371,10 +1325,5 @@
             }
         });
     </script>
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/+923026201671?text=Hi%20Al-Munir%20Boutique%2C%20I%27d%20like%20to%20know%20more%20about%20your%20collection" class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">
-        💬
-    </a>
-
 </body>
 </html>
