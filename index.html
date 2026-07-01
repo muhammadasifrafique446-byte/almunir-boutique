@@ -798,75 +798,33 @@
             }
         }
 
+
     
-        /* Urdu Customer Satisfaction Section */
-        .urdu-section {
-            background: linear-gradient(135deg, #3E2723 0%, #8B1538 50%, #2C1810 100%);
-            padding: 3.5rem 2rem;
-            text-align: center;
+        /* Urdu Section */
+        .urdu-box {
+            background: linear-gradient(135deg, #3E2723, #8B1538, #2C1810);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            text-align: right;
             direction: rtl;
-            width: 100%;
         }
-
-        .urdu-inner {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .urdu-section h3 {
-            font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
-            font-size: 1.6rem;
+        .urdu-box h4 {
             color: #FFD700;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            direction: rtl;
-            letter-spacing: 0;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            line-height: 2;
+        }
+        .urdu-box p {
+            color: rgba(255,255,255,0.92);
+            font-size: 1.05rem;
             line-height: 2.2;
+            margin-bottom: 0.6rem;
+            padding-right: 1rem;
+            border-right: 3px solid #FFD700;
         }
 
-        .urdu-lines {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .urdu-line {
-            font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.95);
-            direction: rtl;
-            line-height: 2.2;
-            padding: 0.8rem 2rem;
-            border-right: 4px solid #FFD700;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 8px;
-            max-width: 700px;
-            width: 100%;
-            transition: background 0.3s ease;
-        }
-
-        .urdu-line:hover {
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        .urdu-line .icon {
-            display: inline-block;
-            margin-left: 0.5rem;
-            direction: ltr;
-        }
-
-        @media (max-width: 768px) {
-            .urdu-section h3 {
-                font-size: 1.3rem;
-            }
-            .urdu-line {
-                font-size: 1.1rem;
-                padding: 0.7rem 1.2rem;
-            }
-        }
-
-    </style>
+        </style>
 </head>
 <body>
     <!-- Zoom Modal -->
@@ -939,37 +897,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Urdu Customer Satisfaction Section -->
-    <section class="urdu-section">
-        <div class="urdu-inner">
-            <h3>ہمارے گاہکوں کا اطمینان ہماری اولین ترجیح ہے 🌹</h3>
-            <div class="urdu-lines">
-                <div class="urdu-line">
-                    <span class="icon">✨</span>
-                    ہم آپ کو بہترین معیار کے کپڑے فراہم کرتے ہیں — ہر ڈیزائن محبت اور لگن سے تیار کیا جاتا ہے
-                </div>
-                <div class="urdu-line">
-                    <span class="icon">✂️</span>
-                    سلا ہوا یا بن سلا — آپ کی پسند کے مطابق، آپ کی خوشی کے لیے
-                </div>
-                <div class="urdu-line">
-                    <span class="icon">🚚</span>
-                    پورے پاکستان میں ڈیلیوری — آپ کے گھر تک، آپ کی دہلیز تک
-                </div>
-                <div class="urdu-line">
-                    <span class="icon">💬</span>
-                    واٹس ایپ پر آرڈر کریں — فوری جواب، آسان خریداری
-                </div>
-                <div class="urdu-line">
-                    <span class="icon">🌟</span>
-                    ہزاروں خوش گاہکوں کا اعتماد — الـمنیر بوتیک، معیار کی ضمانت
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Container -->
+<!-- Main Container -->
     <div class="container">
         <!-- About Section -->
         <section class="about">
@@ -983,6 +911,15 @@
             <p>
                 📞 <strong>Order on WhatsApp:</strong> Click "Inquire Now" to place your order or ask about customization
             </p>
+            <!-- Urdu Lines -->
+            <div class="urdu-box">
+                <h4>🌹 ہمارے گاہکوں کا اطمینان ہماری اولین ترجیح ہے</h4>
+                <p>✨ ہم آپ کو بہترین معیار کے کپڑے فراہم کرتے ہیں — ہر ڈیزائن محبت اور لگن سے تیار کیا جاتا ہے</p>
+                <p>✂️ سلا ہوا یا بن سلا — آپ کی پسند کے مطابق، آپ کی خوشی کے لیے</p>
+                <p>🚚 پورے پاکستان میں ڈیلیوری — آپ کے گھر تک، آپ کی دہلیز تک</p>
+                <p>💬 واٹس ایپ پر آرڈر کریں — فوری جواب، آسان خریداری</p>
+                <p>🌟 ہزاروں خوش گاہکوں کا اعتماد — الـمنیر بوتیک، معیار کی ضمانت</p>
+            </div>
         </section>
 
         <!-- Products Section -->
